@@ -64,6 +64,7 @@
 /* TWEETS SECTION */
 .tweet {
   border: 3px solid #333;
+  margin-top: 30px;
 }
 
 .tweet header{
@@ -73,6 +74,7 @@
 }
 
 .tweet .profile-img {
+  opacity: 60%;
   width: 38px;
   height: 30px;
   margin-right: 6px;
@@ -110,6 +112,10 @@
 
 .tweet:hover .username {
   color: rgba(64, 86, 161, 0.7);
+}
+
+.tweet:hover .profile-img {
+  opacity: 100%;
 }
 
 .tweet:hover .name,
