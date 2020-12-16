@@ -1,0 +1,120 @@
+/* NEW TWEET SECTION */
+.new-tweet {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 36px;
+}
+
+.new-tweet h2 {
+  text-align: center;
+  font-weight: 900;
+}
+
+.new-tweet label {
+  margin: auto;
+  font-weight: 900;
+  color: #333;
+}
+
+#tweet-text {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #333;
+  padding: 6px;
+  height: 42px;
+  background: none;
+  margin-bottom: 12px;
+}
+
+#tweet-text:focus {
+  outline: 0;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.counter {
+  position: relative;
+  color: #333;
+  font-family: 'Bungee', sans-serif;
+}
+
+.tweet-btn {
+  color: #fff;
+  background: #4056a1;
+  font-family: 'Bungee', sans-serif;
+  outline: 0;
+  border: none;
+  padding: 6px;
+}
+
+.tweet-btn:hover {
+  background: #001c8a;
+}
+
+/* TWEETS SECTION */
+.tweet {
+  border: 3px solid #333;
+}
+
+.tweet header{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 24px;
+}
+
+.tweet .profile-img {
+  width: 38px;
+  height: 30px;
+  margin-right: 6px;
+}
+
+.tweet header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tweet .username {
+  color: rgba(0, 0, 0, 0);
+}
+
+.tweet-content {
+  padding: 18px;
+  font-size: 30px;
+}
+
+.footer-container {
+  padding: 12px;
+  width: 98%;
+  margin: 0 auto;
+  border-top: 3px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HOVER EFFECTS */
+.tweet:hover {
+  box-shadow: 5px 5px 5px 0px, 11px 11px 0px 4px rgba(64, 86, 161, 0.7);
+}
+
+.tweet:hover .username {
+  color: rgba(64, 86, 161, 0.7);
+}
+
+.tweet:hover .name,
+.tweet:hover .tweet-content, 
+.tweet:hover .footer-container {
+  font-weight: bold;
+}
+
