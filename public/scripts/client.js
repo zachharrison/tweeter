@@ -8,6 +8,13 @@
                       HELPER FUNCTIONS
 *************************************************************/
 
+const escape = function(str) {
+
+  let paragraph = document.createElement('paragraph');
+  paragraph.appendChild(document.createTextNode(str));
+  return paragraph.innerHTML;
+
+}
 // TAKE IN TWEET OBJECT AND RETURN THE ENTIRE HTML STRUCTURE OF THE TWEET
 const createTweetElement = function(tweet) {
 
@@ -21,7 +28,7 @@ const createTweetElement = function(tweet) {
       <p class="username">${tweet.user.handle}</p>
     </header>
     <main class="tweet-content">
-      <p>${tweet.content.text}</p>
+    <p>${escape(tweet.content.text)}</p>
     </main>
     <footer>
       <div class="footer-container">
@@ -58,28 +65,6 @@ const loadTweets = function() {
 
 };
 
-// const sendDataToServer = function(e) {
-//   e.preventDefault();
-//     const tweetText = $('.new-tweet form #tweet-text').val();
-//     const tweet = $('.new-tweet form').serialize();
-
-//     if (tweetText.length > 140) {
-//       alert('Tweet is too long, please use up to 140 characters!');
-//     } else if (tweetText === '' || tweetText === null) {
-//       alert('Please enter a tweet');
-//     } else {
-
-//       $.ajax('/tweets' , { method: 'POST',  data: tweet})
-//       .then(res => {
-//         $('.new-tweet form textarea').val('')
-//         $('.counter').val(140);
-//       })
-//       .catch(err => console.log(err));
-
-//     }
-//     loadTweets();
-// }
-
 // SEND FORM DATA TO SERVER WITH AJAX
 const formSubmit = function() {
 
@@ -96,17 +81,16 @@ const formSubmit = function() {
 
       $.ajax('/tweets' , { method: 'POST',  data: tweet})
       .then(res => {
+        loadTweets();
         $('.new-tweet form textarea').val('')
         $('.counter').val(140);
       })
       .catch(err => console.log(err));
 
     }
-    loadTweets();
   });
 
 };
-
 
 
 /************************************************************
