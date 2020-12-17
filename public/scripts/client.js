@@ -67,6 +67,23 @@ const loadTweets = function() {
 
 };
 
+// HELPER TO ALERT ERRORS IN DOM
+const alertError = function(msg) {
+
+  const div = document.createElement('div');
+  const p = document.createElement('p');
+
+  div.appendChild(p);
+  p.appendChild(document.createTextNode(msg));
+  div.classList.add('error');
+
+  $('.new-tweet').prepend(div);
+
+  setTimeout(function(){
+    $('.error').remove();
+  }, 3000);
+};
+
 // SEND FORM DATA TO SERVER WITH AJAX
 const formSubmit = function() {
 
@@ -76,9 +93,9 @@ const formSubmit = function() {
     const tweet = $('.new-tweet form').serialize();
 
     if (tweetText.length > 140) {
-      alert('Tweet is too long, please use up to 140 characters!');
+      alertError('Tweet is too long, please use up to 140 characters!');
     } else if (tweetText === '' || tweetText === null) {
-      alert('Please enter a tweet');
+      alertError('Please enter a tweet');
     } else {
 
       $.ajax('/tweets' , { method: 'POST',  data: tweet})

@@ -4,7 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(187, 24, 24)
+  color: #D8000C;
+  background-color: #FFD2D2;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 .new-tweet {
