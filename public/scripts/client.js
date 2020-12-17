@@ -63,12 +63,20 @@ const formSubmit = function() {
   $('.new-tweet form').on('submit', function(e){
 
     e.preventDefault();
-
+    const tweetText = $('.new-tweet form #tweet-text').val();
     const tweet = $('.new-tweet form').serialize();
 
-    $.ajax('/tweets' , { method: 'POST',  data: tweet})
-    .then(res => renderTweets(res))
-    .catch(err => console.log(err));
+    if (tweetText.length > 140) {
+      alert('Tweet is too long, please use up to 140 characters!');
+    } else if (tweetText === '' || tweetText === null) {
+      alert('Please enter a tweet');
+    } else {
+
+      $.ajax('/tweets' , { method: 'POST',  data: tweet})
+      .then(res => renderTweets(res))
+      .catch(err => console.log(err));
+
+    }
 
   });
 };
