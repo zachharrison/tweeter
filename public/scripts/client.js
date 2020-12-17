@@ -42,7 +42,7 @@ const renderTweets = function(tweets) {
 
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
-    $('#tweets-container').append(newTweet);
+    $('#tweets-container').prepend(newTweet);
   }
 
 
@@ -55,13 +55,35 @@ const loadTweets = function() {
   .then(res => renderTweets(res))
   .catch(err => console.log(err));
 
+
 };
+
+// const sendDataToServer = function(e) {
+//   e.preventDefault();
+//     const tweetText = $('.new-tweet form #tweet-text').val();
+//     const tweet = $('.new-tweet form').serialize();
+
+//     if (tweetText.length > 140) {
+//       alert('Tweet is too long, please use up to 140 characters!');
+//     } else if (tweetText === '' || tweetText === null) {
+//       alert('Please enter a tweet');
+//     } else {
+
+//       $.ajax('/tweets' , { method: 'POST',  data: tweet})
+//       .then(res => {
+//         $('.new-tweet form textarea').val('')
+//         $('.counter').val(140);
+//       })
+//       .catch(err => console.log(err));
+
+//     }
+//     loadTweets();
+// }
 
 // SEND FORM DATA TO SERVER WITH AJAX
 const formSubmit = function() {
 
   $('.new-tweet form').on('submit', function(e){
-
     e.preventDefault();
     const tweetText = $('.new-tweet form #tweet-text').val();
     const tweet = $('.new-tweet form').serialize();
@@ -73,12 +95,16 @@ const formSubmit = function() {
     } else {
 
       $.ajax('/tweets' , { method: 'POST',  data: tweet})
-      .then(res => renderTweets(res))
+      .then(res => {
+        $('.new-tweet form textarea').val('')
+        $('.counter').val(140);
+      })
       .catch(err => console.log(err));
 
     }
-
+    loadTweets();
   });
+
 };
 
 
@@ -88,8 +114,8 @@ const formSubmit = function() {
 *************************************************************/
 $(document).ready(function() {
 
-  formSubmit();
   loadTweets();
+  formSubmit();
 
 });
 
@@ -116,3 +142,24 @@ $(function() {
 }); 
 
 */
+
+
+// e.preventDefault();
+//     const tweetText = $('.new-tweet form #tweet-text').val();
+//     const tweet = $('.new-tweet form').serialize();
+
+//     if (tweetText.length > 140) {
+//       alert('Tweet is too long, please use up to 140 characters!');
+//     } else if (tweetText === '' || tweetText === null) {
+//       alert('Please enter a tweet');
+//     } else {
+
+//       $.ajax('/tweets' , { method: 'POST',  data: tweet})
+//       .then(res => {
+//         $('.new-tweet form textarea').val('')
+//         $('.counter').val(140);
+//       })
+//       .catch(err => console.log(err));
+
+//     }
+//     loadTweets();

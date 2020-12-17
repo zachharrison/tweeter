@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('textarea').on('input', function() {
+  $('textarea').on('input', function(e) {
     const maxLength = 140;
     const curLength = $(this).val().length;
     const lenDisplay = maxLength - curLength;
@@ -12,6 +12,7 @@ $(document).ready(function() {
     } else {
       $('.counter').css('color', '#333');
     }
+
 
   });
 
