@@ -4,31 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 /************************************************************
                       HELPER FUNCTIONS
 *************************************************************/
@@ -73,12 +48,63 @@ const renderTweets = function(tweets) {
 
 };
 
+// FETCH THE TWEETS FROM /TWEETS PAGE
+const loadTweets = function() {
+
+  $.ajax('/tweets', { method: 'GET' })
+  .then(res => renderTweets(res))
+  .catch(err => console.log(err));
+
+};
+
+// SEND FORM DATA TO SERVER WITH AJAX
+const formSubmit = function() {
+
+  $('.new-tweet form').on('submit', function(e){
+
+    e.preventDefault();
+
+    const tweet = $('.new-tweet form').serialize();
+
+    $.ajax('/tweets' , { method: 'POST',  data: tweet})
+    .then(res => renderTweets(res))
+    .catch(err => console.log(err));
+
+  });
+};
+
+
+
 /************************************************************
                     DOCUMENT LOADED
 *************************************************************/
 $(document).ready(function() {
-  
-  renderTweets(tweetData);
-  
+
+  formSubmit();
+  loadTweets();
 
 });
+
+/* 
+
+const tweet = {
+  user: user,
+  content: {
+    text: req.body.text
+  },
+  created_at: Date.now()
+};
+
+$(function() {
+  const $button = $('#load-more-posts');
+  $button.on('click', function () {
+    console.log('Button clicked, performing ajax call...');
+    $.ajax('more-posts.html', { method: 'GET' })
+    .then(function (morePostsHtml) {
+      console.log('Success: ', morePostsHtml);
+      $button.replaceWith(morePostsHtml);
+    });
+  });
+}); 
+
+*/
