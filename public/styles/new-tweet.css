@@ -1,4 +1,12 @@
 /* NEW TWEET SECTION */
+
+.new-tweet .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(187, 24, 24)
+}
+
 .new-tweet {
   width: 100%;
   margin: 0 auto;

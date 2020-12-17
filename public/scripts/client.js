@@ -47,6 +47,8 @@ const createTweetElement = function(tweet) {
 */
 const renderTweets = function(tweets) {
 
+  $("#tweets-container").empty();
+
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
     $('#tweets-container').prepend(newTweet);
@@ -86,10 +88,8 @@ const formSubmit = function() {
         $('.counter').val(140);
       })
       .catch(err => console.log(err));
-
     }
   });
-
 };
 
 
@@ -102,48 +102,3 @@ $(document).ready(function() {
   formSubmit();
 
 });
-
-/* 
-
-const tweet = {
-  user: user,
-  content: {
-    text: req.body.text
-  },
-  created_at: Date.now()
-};
-
-$(function() {
-  const $button = $('#load-more-posts');
-  $button.on('click', function () {
-    console.log('Button clicked, performing ajax call...');
-    $.ajax('more-posts.html', { method: 'GET' })
-    .then(function (morePostsHtml) {
-      console.log('Success: ', morePostsHtml);
-      $button.replaceWith(morePostsHtml);
-    });
-  });
-}); 
-
-*/
-
-
-// e.preventDefault();
-//     const tweetText = $('.new-tweet form #tweet-text').val();
-//     const tweet = $('.new-tweet form').serialize();
-
-//     if (tweetText.length > 140) {
-//       alert('Tweet is too long, please use up to 140 characters!');
-//     } else if (tweetText === '' || tweetText === null) {
-//       alert('Please enter a tweet');
-//     } else {
-
-//       $.ajax('/tweets' , { method: 'POST',  data: tweet})
-//       .then(res => {
-//         $('.new-tweet form textarea').val('')
-//         $('.counter').val(140);
-//       })
-//       .catch(err => console.log(err));
-
-//     }
-//     loadTweets();
