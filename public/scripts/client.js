@@ -64,7 +64,7 @@ const loadTweets = function() {
 
 };
 
-// HELPER TO ALERT ERRORS IN DOM
+// ALERT ERROR MESSAGE IN DOM AND DISAPPEAR AFTER 3 SECONDS
 const alertError = function(msg) {
 
   const div = document.createElement('div');
@@ -99,7 +99,7 @@ const formSubmit = function() {
       $.ajax('/tweets' , { method: 'POST',  data: tweet})
       .then(res => {
         loadTweets();
-        $('.new-tweet form textarea').val('')
+        $('.new-tweet form input').val('')
         $('.counter').val(140);
       })
       .catch(err => console.log(err));

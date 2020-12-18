@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('textarea').on('input', function(e) {
+  $('input').on('input', function(e) {
     const maxLength = 140;
     const curLength = $(this).val().length;
     const lenDisplay = maxLength - curLength;
