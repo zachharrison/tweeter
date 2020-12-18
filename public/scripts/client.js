@@ -33,7 +33,11 @@ const createTweetElement = function(tweet) {
     <footer>
       <div class="footer-container">
         <small>${tweet.created_at} days ago</small>
-        <small class="icons">🏴 🔂 ❤️</small>
+        <div class="icons">
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-retweet"></i>
+        <i class="fas fa-heart"></i>
+        </div>
       </div>
     </footer>`
   );
@@ -64,7 +68,6 @@ const loadTweets = function() {
   .then(res => renderTweets(res))
   .catch(err => console.log(err));
 
-
 };
 
 // HELPER TO ALERT ERRORS IN DOM
@@ -88,6 +91,7 @@ const alertError = function(msg) {
 const formSubmit = function() {
 
   $('.new-tweet form').on('submit', function(e){
+    
     e.preventDefault();
     const tweetText = $('.new-tweet form #tweet-text').val();
     const tweet = $('.new-tweet form').serialize();

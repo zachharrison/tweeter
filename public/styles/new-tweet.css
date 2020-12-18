@@ -1,4 +1,8 @@
 /* NEW TWEET SECTION */
+.new-tweet {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .new-tweet .error {
   display: flex;
@@ -6,14 +10,8 @@
   align-items: center;
   color: #D8000C;
   background-color: #FFD2D2;
-  margin-top: 15px;
   border-radius: 5px;
-}
-
-.new-tweet {
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .new-tweet h2 {
@@ -22,14 +20,15 @@
 }
 
 .new-tweet label {
-  margin: auto;
+  margin: 0px auto;
+  /* margin-top: 5000px; */
   font-weight: 900;
   color: #333;
 }
 
 #tweet-text {
   display: flex;
-  margin: 0 auto;
+  margin: 12px auto;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -38,7 +37,6 @@
   padding: 6px;
   height: 42px;
   background: none;
-  margin-bottom: 12px;
 }
 
 #tweet-text:focus {
@@ -78,7 +76,7 @@
   margin-top: 30px;
 }
 
-.tweet header{
+.tweet header {
   display: flex;
   justify-content: space-between;
   margin: 0 24px;
@@ -116,6 +114,13 @@
   align-items: center;
 }
 
+.footer-container .icons {
+  padding: 2px;
+  font-size: 12px;
+  color:rgba(64, 86, 161, 0.7);
+}
+
+
 /* HOVER EFFECTS */
 .tweet:hover {
   box-shadow: 5px 5px 5px 0px, 11px 11px 0px 4px rgba(64, 86, 161, 0.7);
@@ -129,9 +134,59 @@
   opacity: 100%;
 }
 
+.tweet:hover .icons {
+  padding: 2px;
+  font-size: 14px;
+  color:rgba(64, 86, 161, 1);
+}
+
 .tweet:hover .name,
 .tweet:hover .tweet-content, 
 .tweet:hover .footer-container {
   font-weight: bold;
+}
+
+/* RESPONSIVE DESIGN */
+
+  /* Laptops / Desktops: minimum width of 1024px */
+  @media only screen and (min-width: 1024px) {
+
+  nav {
+    height: 120px;
+    background: #4056a1;
+    position: fixed;
+  }
+
+  nav div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    margin-right: 24px;
+  }
+
+  .container {
+    margin-top: 185px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+    justify-content: flex-end;
+  }
+
+  #background {
+    margin-top: 185px;
+    top: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    max-width: 33vw;
+    max-height: 65vh;
+    margin-left: 30px;
+  }
 }
 
