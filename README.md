@@ -16,7 +16,7 @@ This repository is the starter code for the project: Students will fork and clon
 !['Screenshot of home page'](https://github.com/zachharrison/tweeter/blob/master/docs/home-page.png)
 !['Screenshot of a new tweet'](https://github.com/zachharrison/tweeter/blob/master/docs/new-tweet.png)
 !['Screenshot of tweet hover effect'](https://github.com/zachharrison/tweeter/blob/master/docs/hover-tweet.png)
-!['Screenshot of responsive design](https://github.com/zachharrison/tweeter/blob/master/docs/respnsive-design.png)
+!['Screenshot of responsive design'](https://github.com/zachharrison/tweeter/blob/master/docs/respnsive-design.png)
 
 ## Getting Started
 
