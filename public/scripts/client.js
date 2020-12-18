@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-*/
-
 /************************************************************
                       HELPER FUNCTIONS
 *************************************************************/
@@ -32,7 +26,7 @@ const createTweetElement = function(tweet) {
     </main>
     <footer>
       <div class="footer-container">
-        <small>${tweet.created_at} days ago</small>
+        <small>${moment(tweet.created_at).fromNow()}</small>
         <div class="icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
