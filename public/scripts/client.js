@@ -2,6 +2,7 @@
                       HELPER FUNCTIONS
 *************************************************************/
 
+// CREATED ESCAPE HELPER TO AVOID XXS ATTACKS
 const escape = function(str) {
 
   let paragraph = document.createElement('paragraph');
@@ -9,6 +10,7 @@ const escape = function(str) {
   return paragraph.innerHTML;
 
 }
+
 // TAKE IN TWEET OBJECT AND RETURN THE ENTIRE HTML STRUCTURE OF THE TWEET
 const createTweetElement = function(tweet) {
 
@@ -52,7 +54,6 @@ const renderTweets = function(tweets) {
     $('#tweets-container').prepend(newTweet);
   }
 
-
 };
 
 // FETCH THE TWEETS FROM /TWEETS PAGE
@@ -79,6 +80,7 @@ const alertError = function(msg) {
   setTimeout(function(){
     $('.error').remove();
   }, 3000);
+
 };
 
 // SEND FORM DATA TO SERVER WITH AJAX
@@ -99,13 +101,25 @@ const formSubmit = function() {
       $.ajax('/tweets' , { method: 'POST',  data: tweet})
       .then(res => {
         loadTweets();
-        $('.new-tweet form input').val('')
+        $('.new-tweet form textarea').val('')
         $('.counter').val(140);
       })
       .catch(err => console.log(err));
     }
+
   });
+
 };
+
+// TOGGLE CLASS TO HIDE AND SHOW TEXTAREA
+const toggleInput = function() {
+
+  $('nav div i').on('click', function(){
+    $('#new-tweet').toggleClass('hidden');
+    $('#tweet-text').focus();
+  });
+
+}
 
 
 /************************************************************
@@ -115,5 +129,6 @@ $(document).ready(function() {
 
   loadTweets();
   formSubmit();
+  toggleInput();
 
 });
