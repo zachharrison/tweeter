@@ -112,7 +112,7 @@ const formSubmit = function() {
 };
 
 // TOGGLE CLASS TO HIDE AND SHOW TEXTAREA
-const toggleInput = function() {
+const toggleTextarea = function() {
 
   $('nav div i').on('click', function(){
     $('#new-tweet').toggleClass('hidden');
@@ -129,6 +129,6 @@ $(document).ready(function() {
 
   loadTweets();
   formSubmit();
-  toggleInput();
+  toggleTextarea();
 
 });
